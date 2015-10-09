@@ -17,7 +17,7 @@ init:
   - set TBB_ARCH_PLATFORM=intel64/vc12
 
 build:
-  project: build/perflib.sln
+  project: c:\projects\perflib\build\perflib.sln
 
 clone_depth: 5
 
