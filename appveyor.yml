@@ -44,6 +44,6 @@ before_build:
 
 
 test_script:
-- set "path=%PATH;%TBBROOT%\bin\%TBB_ARCH_PLATFORM%"
+- set "path=%PATH%;%TBBROOT%\bin\%TBB_ARCH_PLATFORM%"
 - echo %PATH%
 - msbuild c:\projects\perflib\build\RUN_TESTS.vcxproj
