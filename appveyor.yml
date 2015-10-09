@@ -8,20 +8,25 @@ configuration: Release
 clone_folder: c:\projects\perflib
 
 init:
-  - git config --global core.autocrlf input
+- git config --global core.autocrlf input
 
 environment:
   matrix:
-    - toolset: Visual Studio 12 2013 Win64
-      tbb_arch_platform: "intel64/vc12"
-      platform: x64
-    # - toolset: Visual Studio 14 2015 Win64
-    #   tbb_architecture: intel64/vc14
-    - toolset: Visual Studio 12 2013
-      tbb_arch_platform: ia32/vc12
-      platform: x86
-    # - toolset: Visual Studio 14 2015
-    #   tbb_architecture: ia32/vc14
+  - toolset: Visual Studio 12 2013
+    tbb_arch_platform: ia32/vc12
+    platform: x86
+  - toolset: Visual Studio 12 2013 Win64
+    tbb_arch_platform: "intel64/vc12"
+    platform: x64
+  # - toolset: Visual Studio 14 2015 Win64
+  #   tbb_architecture: intel64/vc14
+  # - toolset: Visual Studio 14 2015
+  #   tbb_architecture: ia32/vc14
+
+
+configuration:
+- Debug
+- Release
 
 build:
   project: c:\projects\perflib\build\perflib.sln
