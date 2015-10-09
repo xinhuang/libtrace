@@ -50,7 +50,8 @@ before_build:
 - echo %TBB_ARCH_PLATFORM%
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
-- cmake .. -G "Visual Studio %%vs_ver%% %%architecture%%"
+- set toolset="Visual Studio %vs_ver% %architecture%"
+- cmake .. -G %toolset%
 
 
 test_script:
