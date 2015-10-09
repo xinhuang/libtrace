@@ -11,7 +11,7 @@ init:
   - git config --global core.autocrlf input
   - mkdir c:\projects\downloads
   - appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName c:\projects\downloads\tbb44_20150728oss_win.zip
-  - 7z.exe x c:\projects\downloads\tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
+  - 7z.exe x c:\projects\downloads\tbb44_20150728oss_win.zip -oc:\projects\deps > c:\projects\downloads\unzip_tbb.log
   - dir c:\projects\deps
   - set TBBROOT=c:\projects\deps\tbb44_20150728oss
 
