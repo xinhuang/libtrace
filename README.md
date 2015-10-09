@@ -91,17 +91,6 @@ Add `-DTBBROOT=<your TBB root path` and set environment variable `TBB_ARCH_PLATF
 match your platform and compiler. For example, `ia32/vc14` is for VC14 on x86, `intel64/gcc4.8` for gcc 4.8 on x86-64.
 You can also get these variables set by running `<TBBROOT>/tbbvars.bat <platform> <compiler>`.
 
-## TODO
-
-* Collect running time for each module  
-* Use pipeline to parallel read/comparison  
-* Report differences  
-* Blob file support  
-* String type support
-* Out-of-order column support
-* Data range shifts detection and comparison support
-* Missing data file detection and comparison support
-
 ## Coding Style
 
 This project follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html).
