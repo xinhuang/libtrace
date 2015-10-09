@@ -1,10 +1,5 @@
 version: 0.0.1.{build}
 
-#environment:
-
-platform: x64
-configuration: Release
-
 clone_folder: c:\projects\perflib
 
 init:
@@ -22,7 +17,6 @@ environment:
   #   tbb_architecture: intel64/vc14
   # - toolset: Visual Studio 14 2015
   #   tbb_architecture: ia32/vc14
-
 
 configuration:
 - Debug
