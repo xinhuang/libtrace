@@ -43,4 +43,5 @@ before_build:
 
 
 test_script:
-- msbuild RUN_TESTS.vcxproj
+- set "path=%PATH;%TBBROOT%\bin\%TBB_ARCH_PLATFORM%"
+- msbuild c:\projects\perflib\build\RUN_TESTS.vcxproj
