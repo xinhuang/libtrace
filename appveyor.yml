@@ -39,7 +39,7 @@ skip_commits:
 
 before_build:
 - echo ------------------------------- DOWNLOAD--------------------------------
-- mkdir c:\projects\downloads
+- if not exist c:\projects\downloads ( mkdir c:\projects\downloads )
 - cd c:\projects\downloads
 - if not exist tbb44_20150728oss_win.zip (appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip && 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log)
 - set TBBROOT=c:\projects\deps\tbb44_20150728oss
