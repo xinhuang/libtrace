@@ -14,10 +14,12 @@ environment:
   matrix:
     - toolset: Visual Studio 12 2013 Win64
       tbb_arch_platform: "intel64/vc12"
+      platform: Any CPU
     # - toolset: Visual Studio 14 2015 Win64
     #   tbb_architecture: intel64/vc14
     - toolset: Visual Studio 12 2013
       tbb_arch_platform: ia32/vc12
+      platform: x86
     # - toolset: Visual Studio 14 2015
     #   tbb_architecture: ia32/vc14
 
