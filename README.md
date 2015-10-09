@@ -70,15 +70,15 @@ Total Time: 1.00055 seconds.
   cd perflib
   mkdir build
   cd build
-  cmake .. -G "Visual Studio 14 2015 Win64"   # VS 2015
+  cmake .. -G "Visual Studio 14 2015 Win64"
   msbuild perflib.sln /m
-  msbuild RUN_TESTS.vcxproj             # Run tests
+  msbuild RUN_TESTS.vcxproj                  # Run tests
 ```
 
 * x86-64
 
 If you prefer x86-64,
-*For Windows*, use -G "Visual Studio 14 2015 Win64".
+*For Windows*, use -G "Visual Studio 14 2015".
 
 
 ### Toubleshooting
