@@ -11,10 +11,16 @@ init:
   - git config --global core.autocrlf input
   - mkdir c:\projects\downloads
   - appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName c:\projects\downloads\tbb44_20150728oss_win.zip
-  - 7z.exe x c:\projects\downloads\tbb44_20150728oss_win.zip -oc:\projects\deps
+  - 7z.exe x c:\projects\downloads\tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
   - dir c:\projects\deps
   - set TBBROOT=c:\projects\deps\tbb44_20150728oss
-  - set TBB_ARCH_PLATFORM=intel64/vc12
+
+environment:
+  matrix:
+    - architecture: Win64
+      tbb_architecture: intel64
+    - architecture:
+      tbb_architecture: ia32
 
 build:
   project: c:\projects\perflib\build\perflib.sln
@@ -30,6 +36,7 @@ skip_commits:
 
 before_build:
 - cmake --version
+- set TBB_ARCH_PLATFORM=$env:architecture/vs12
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
 - cmake .. -G "Visual Studio 12 Win64"
