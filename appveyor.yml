@@ -9,12 +9,6 @@ clone_folder: c:\projects\perflib
 
 init:
   - git config --global core.autocrlf input
-  - mkdir c:\projects\downloads
-  - cd c:\projects\downloads
-  - if not exist tbb44_20150728oss_win.zip (appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip)
-  - 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
-  - set TBBROOT=c:\projects\deps\tbb44_20150728oss
-  - cd c:\projects\perflib
 
 environment:
   matrix:
@@ -24,10 +18,10 @@ environment:
     - architecture: Win64
       tbb_architecture: intel64
       vs_ver: 14 2015
-    - architecture: Win32
+    - architecture: #Win32
       tbb_architecture: ia32
       vs_ver: 12 2013
-    - architecture: Win32
+    - architecture: #Win32
       tbb_architecture: ia32
       vs_ver: 14 2015
 
@@ -44,13 +38,19 @@ skip_commits:
   message: /\[av skip\]/
 
 before_build:
+- echo ------------------------------- DOWNLOAD--------------------------------
+- mkdir c:\projects\downloads
+- cd c:\projects\downloads
+- if not exist tbb44_20150728oss_win.zip (appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip && 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log)
+- set TBBROOT=c:\projects\deps\tbb44_20150728oss
+- cd c:\projects\perflib
+- echo --------------------------------- CMAKE ---------------------------------
 - cmake --version
 - set TBB_ARCH_PLATFORM=%tbb_architecture%/vc12
 - echo %TBB_ARCH_PLATFORM%
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
-- if %architecture%==Win32 ( set "architecture=" )
-- cmake .. -G "Visual Studio %vs_ver% %architecture%"
+- cmake .. -G "Visual Studio %%vs_ver%% %%architecture%%"
 
 
 test_script:
