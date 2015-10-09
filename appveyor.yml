@@ -52,7 +52,8 @@ before_build:
 - cd c:\projects\perflib\build
 - set toolset="Visual Studio %vs_ver% %architecture%"
 - echo %toolset%
-- cmake .. -G %toolset%
+- ps: write-host $env:toolset
+- ps: & cmake .. -G $env:toolset
 
 
 test_script:
