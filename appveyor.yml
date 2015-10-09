@@ -36,7 +36,7 @@ skip_commits:
 
 before_build:
 - cmake --version
-- set TBB_ARCH_PLATFORM=$env:architecture/vs12
+- set TBB_ARCH_PLATFORM=$env:tbb_architecture/vc12
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
 - cmake .. -G "Visual Studio 12 Win64"
