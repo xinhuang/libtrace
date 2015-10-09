@@ -1,0 +1,29 @@
+language: cpp
+sudo: false
+
+compiler:
+- g++
+
+before_install:
+- wget https://www.threadingbuildingblocks.org/sites/default/files/software_releases/linux/tbb44_20150728oss_lin_0.tgz
+- tar xf tbb44_20150728oss_lin_0.tgz
+- export TBBROOT=`pwd`/tbb44_20150728oss
+- export TBB_ARCH_PLATFORM=intel64/gcc4.4
+- export CXX=g++-4.8
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+    - cmake
+
+script:
+- $CXX -v
+- cmake --version
+- mkdir ./build
+- cd ./build
+- cmake ..
+- make
+- ctest

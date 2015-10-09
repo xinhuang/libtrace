@@ -1,0 +1,33 @@
+version: 0.0.1.{build}
+
+#environment:
+
+platform: x64
+configuration: Release
+
+clone_folder: c:\projects\perflib
+
+init:
+  - git config --global core.autocrlf input
+
+build:
+  project: perflib.sln
+
+clone_depth: 5
+
+matrix:
+  fast_finish: true
+
+skip_commits:
+# Add [av skip] to commit messages
+  message: /\[av skip\]/
+
+before_build:
+- cmake --version
+- cd c:\projects\perflib
+- mkdir build
+- cd build
+- cmake .. -G "Visual Studio 12 Win64" .
+
+test_script:
+- msbuild RUN_TESTS.vcxproj
