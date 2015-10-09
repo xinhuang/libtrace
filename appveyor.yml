@@ -53,7 +53,7 @@ before_build:
 - set toolset="Visual Studio %vs_ver% %architecture%"
 - echo %toolset%
 - ps: write-host $env:toolset
-- ps: & cmake .. -G $env:toolset
+- ps: cmake .. -G $env:toolset
 
 
 test_script:
