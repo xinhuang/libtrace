@@ -11,9 +11,9 @@ init:
   - git config --global core.autocrlf input
   - mkdir c:\projects\perflib\downloads
   - appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName c:\projects\perflib\downloads\tbb44_20150728oss_win.zip
-  - 7z.exe x c:\projects\perflib\downloads\tbb44_20150728oss_win.zip -oc:\projects\perflib\deps\tbb44_20150728oss_win
-  - dir c:\projects\perflib\deps\tbb44_20150728oss_win
-  - set TBBROOT=c:\projects\perflib\deps\tbb44_20150728oss_win
+  - 7z.exe x c:\projects\perflib\downloads\tbb44_20150728oss_win.zip -oc:\projects\perflib\deps
+  - dir c:\projects\perflib\deps
+  - set TBBROOT=c:\projects\perflib\deps\tbb44_20150728oss
   - set TBB_ARCH_PLATFORM=intel64/vc12
 
 build:
