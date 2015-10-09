@@ -1,6 +1,6 @@
 # perflib
 
-perflib provides fast instrumentation and tracing API to generate trace data during execution.
+perflib provides fast instrumentation and tracing API to generate trace data during execution for C/C++.
 
 Travis CI: [![Build Status](https://travis-ci.org/xinhuang/perflib.svg)](https://travis-ci.org/xinhuang/perflib)
 AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sqkufd5fey0y?svg=true)](https://ci.appveyor.com/project/xinhuang/perflib)
@@ -8,9 +8,9 @@ AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sq
 ## Example
 
 ```
-PerfModule *M = perf_module("Module A");
-PerfTask *A = perf_task("Task A");
-PerfTask *B = perf_task("Task B");
+auto *M = perf::module("Module A");
+auto *A = perf::task("Task A");
+auto *B = perf::task("Task B");
 
 using namespace tbb;
 task_scheduler_init TSI(1);
@@ -39,6 +39,8 @@ Total Time: 1.00055 seconds.
 		Task Task A : 1.00054 seconds.
 		Task Task B : 1.00019 seconds.
 ```
+
+* perflib also provides equivalent C interfaces. *
 
 ## How to Build
 
