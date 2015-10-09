@@ -9,7 +9,7 @@ environment:
   matrix:
   - toolset: Visual Studio 12 2013
     tbb_arch_platform: ia32/vc12
-    platform: Win23
+    platform: Win32
   - toolset: Visual Studio 12 2013 Win64
     tbb_arch_platform: "intel64/vc12"
     platform: x64
@@ -35,14 +35,14 @@ skip_commits:
   message: /\[av skip\]/
 
 before_build:
-- echo ------------------------------- DOWNLOAD--------------------------------
+- set stage=--------------------------- DOWNLOAD--------------------------------
 - if not exist c:\projects\downloads ( mkdir c:\projects\downloads )
 - cd c:\projects\downloads
 - if not exist tbb44_20150728oss_win.zip ( appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip )
 - 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
 - set TBBROOT=c:\projects\deps\tbb44_20150728oss
 - cd c:\projects\perflib
-- echo --------------------------------- CMAKE ---------------------------------
+- set stage=---------------------------- CMAKE ---------------------------------
 - cmake --version
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
