@@ -10,11 +10,11 @@ clone_folder: c:\projects\perflib
 init:
   - git config --global core.autocrlf input
   - mkdir c:\projects\downloads
-  - pushd c:\projects\downloads
-  - if not exist tbb44_20150728oss_win.zip (appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName c:\projects\downloads\tbb44_20150728oss_win.zip)
-  - 7z.exe x c:\projects\downloads\tbb44_20150728oss_win.zip -oc:\projects\deps > c:\projects\downloads\unzip_tbb.log
+  - cd c:\projects\downloads
+  - if not exist tbb44_20150728oss_win.zip (appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip)
+  - 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
   - set TBBROOT=c:\projects\deps\tbb44_20150728oss
-  - popd
+  - cd c:\projects\perflib
 
 environment:
   matrix:
