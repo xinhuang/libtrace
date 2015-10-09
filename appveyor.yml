@@ -9,7 +9,7 @@ environment:
   matrix:
   - toolset: Visual Studio 12 2013
     tbb_arch_platform: ia32/vc12
-    platform: x86
+    platform: Win23
   - toolset: Visual Studio 12 2013 Win64
     tbb_arch_platform: "intel64/vc12"
     platform: x64
