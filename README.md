@@ -3,6 +3,7 @@
 perflib provides fast instrumentation and tracing API to generate trace data during execution.
 
 Travis CI: [![Build Status](https://travis-ci.org/xinhuang/perflib.svg)](https://travis-ci.org/xinhuang/perflib)
+AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sqkufd5fey0y?svg=true)](https://ci.appveyor.com/project/xinhuang/perflib)
 
 ## Example
 
