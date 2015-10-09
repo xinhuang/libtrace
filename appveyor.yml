@@ -9,8 +9,8 @@ clone_folder: c:\projects\perflib
 
 init:
   - git config --global core.autocrlf input
-  - appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip
-  - 7z.exe x tbb44_20150728oss_win.zip c:\projects\perflib\deps\tbb44_20150728oss_win
+  - appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName c:\projects\perflib\downloads\tbb44_20150728oss_win.zip
+  - 7z.exe x c:\projects\perflib\downloads\tbb44_20150728oss_win.zip c:\projects\perflib\deps\tbb44_20150728oss_win
   - set TBBROOT=c:\projects\perflib\deps\tbb44_20150728oss_win
   - set TBB_ARCH_PLATFORM=intel64/vc12
 
