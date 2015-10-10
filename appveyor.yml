@@ -1,5 +1,9 @@
 version: 0.0.1.{build}
 
+notifications:
+  - provider: gitter
+    url: https://webhooks.gitter.im/e/836566ea70a6eb4bbdbd
+
 clone_folder: c:\projects\perflib
 
 init:
