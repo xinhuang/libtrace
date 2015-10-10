@@ -2,6 +2,7 @@
 
 perflib provides fast instrumentation and tracing API to generate trace data during execution for C/C++.
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/xinhuang/perflib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 Travis CI: [![Build Status](https://travis-ci.org/xinhuang/perflib.svg)](https://travis-ci.org/xinhuang/perflib)
 AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sqkufd5fey0y?svg=true)](https://ci.appveyor.com/project/xinhuang/perflib)
 
