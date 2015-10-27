@@ -13,6 +13,13 @@ compiler:
 - g++
 
 before_install:
+- wget http://www.cmake.org/files/v3.3/cmake-3.3.2.tar.gz
+- tar xf cmake-3.3.2.tar.gz
+- cd cmake-3.3.2
+- ./bootstrap --system-curl --prefix=$HOME/usr
+- make
+- make install
+- cd ..
 - wget https://www.threadingbuildingblocks.org/sites/default/files/software_releases/linux/tbb44_20150728oss_lin_0.tgz
 - tar xf tbb44_20150728oss_lin_0.tgz
 - export TBBROOT=`pwd`/tbb44_20150728oss
@@ -25,7 +32,6 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-    - cmake
 
 script:
 - $CXX -v
