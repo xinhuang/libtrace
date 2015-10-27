@@ -19,6 +19,7 @@ before_install:
 - ./bootstrap --system-curl --prefix=$HOME/usr
 - make
 - make install
+- export PATH=$HOME/usr/bin:$PATH
 - cd ..
 - wget https://www.threadingbuildingblocks.org/sites/default/files/software_releases/linux/tbb44_20150728oss_lin_0.tgz
 - tar xf tbb44_20150728oss_lin_0.tgz
