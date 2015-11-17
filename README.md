@@ -43,6 +43,38 @@ Total Time: 1.00055 seconds.
 
 * perflib also provides equivalent C interfaces. *
 
+## Performance of perflib
+
+Measured by google/benchmark  
+
+```
+Run on (1 X 3292 MHz CPU )
+11/17/15 15:45:42
+Benchmark                       Time(ns)    CPU(ns) Iterations
+--------------------------------------------------------------
+BM_perf_start_stop                   163        160    4487151
+BM_perf_start_stop/threads:2         145        292    2243576
+BM_perf_start_stop/threads:3         173        521    1495716
+BM_perf_start_stop/threads:4         205        814     747860
+BM_perf_start_stop/threads:5         216        973     560895
+BM_perf_start_stop/threads:6         227       1460     448740
+BM_perf_start_stop/threads:7         254       1738     448714
+BM_perf_start_stop/threads:8         242       1947     512816
+BM_perf_start_stop/threads:10        233       1669     560890
+BM_perf_start_stop/threads:12        238       1808     336540
+BM_perf_start_stop/threads:14        248       1987     392630
+BM_perf_start_stop/threads:16        222       1323     518752
+BM_perf_start_stop/threads:18        242       1748     517734
+BM_perf_start_stop/threads:20        251       1916     309460
+BM_perf_start_stop/threads:22        253       1758     346060
+BM_perf_start_stop/threads:24        255       1622     538464
+BM_perf_start_stop/threads:26        257       1926     364572
+BM_perf_start_stop/threads:28        250       1453     418796
+BM_perf_start_stop/threads:30        262       2204     375150
+BM_perf_start_stop/threads:32        260       1871     383488
+BM_increment_by_one                    2          2  407922793
+```
+
 ## How to Build
 
 ### Set Up Dependencies
