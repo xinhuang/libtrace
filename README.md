@@ -49,30 +49,30 @@ Measured by google/benchmark
 
 ```
 Run on (1 X 3292 MHz CPU )
-11/17/15 15:45:42
-Benchmark                       Time(ns)    CPU(ns) Iterations
---------------------------------------------------------------
-BM_perf_start_stop                   163        160    4487151
-BM_perf_start_stop/threads:2         145        292    2243576
-BM_perf_start_stop/threads:3         173        521    1495716
-BM_perf_start_stop/threads:4         205        814     747860
-BM_perf_start_stop/threads:5         216        973     560895
-BM_perf_start_stop/threads:6         227       1460     448740
-BM_perf_start_stop/threads:7         254       1738     448714
-BM_perf_start_stop/threads:8         242       1947     512816
-BM_perf_start_stop/threads:10        233       1669     560890
-BM_perf_start_stop/threads:12        238       1808     336540
-BM_perf_start_stop/threads:14        248       1987     392630
-BM_perf_start_stop/threads:16        222       1323     518752
-BM_perf_start_stop/threads:18        242       1748     517734
-BM_perf_start_stop/threads:20        251       1916     309460
-BM_perf_start_stop/threads:22        253       1758     346060
-BM_perf_start_stop/threads:24        255       1622     538464
-BM_perf_start_stop/threads:26        257       1926     364572
-BM_perf_start_stop/threads:28        250       1453     418796
-BM_perf_start_stop/threads:30        262       2204     375150
-BM_perf_start_stop/threads:32        260       1871     383488
-BM_increment_by_one                    2          2  407922793
+11/18/15 12:21:43
+Benchmark                          Time(ns)    CPU(ns) Iterations
+-----------------------------------------------------------------
+BM_perflib_start_stop/threads:1         172        171    3739292
+BM_perflib_start_stop/threads:2         102        200    3205108
+BM_perflib_start_stop/threads:3          78        234    3000000
+BM_perflib_start_stop/threads:4          82        299    2243576
+BM_perflib_start_stop/threads:5          70        298    1725825
+BM_perflib_start_stop/threads:6          54        313    2243574
+BM_perflib_start_stop/threads:7          49        322    2710421
+BM_perflib_start_stop/threads:8          45        382    2243576
+BM_perflib_start_stop/threads:9          55        322    2516796
+BM_perflib_start_stop/threads:10         98        419    1602550
+BM_perflib_start_stop/threads:11         64        435    1542453
+BM_perflib_start_stop/threads:12         64        347    2341128
+BM_perflib_start_stop/threads:13         66        368    1822899
+BM_perflib_start_stop/threads:14         56        379    2512804
+BM_perflib_start_stop/threads:15         58        441    1875885
+BM_perflib_start_stop/threads:16         57        361    2334448
+BM_perflib_start_stop/threads:17         52        321    1700000
+BM_perflib_start_stop/threads:18         53        321    1800000
+BM_perflib_start_stop/threads:19         58        302    1705117
+BM_perflib_start_stop/threads:20         52        344    2130640
+BM_increment_by_one                       2          2  407922793
 ```
 
 ## How to Build
@@ -88,26 +88,26 @@ BM_increment_by_one                    2          2  407922793
 
 * Linux
 
-```
-  git clone git@github.com/xinhuang/perflib.git
-  cd perflib
-  mkdir build
-  cd build
-  cmake ..
-  make
-  make test                             # Run tests
+```  
+git clone git@github.com/xinhuang/perflib.git
+cd perflib
+mkdir build
+cd build
+cmake ..
+make
+make test                             # Run tests
 ```
 
 * Windows
 
 ```
-  git clone git@github.com/xinhuang/perflib.git
-  cd perflib
-  mkdir build
-  cd build
-  cmake .. -G "Visual Studio 14 2015 Win64"
-  msbuild perflib.sln /m
-  msbuild RUN_TESTS.vcxproj                  # Run tests
+git clone git@github.com/xinhuang/perflib.git
+cd perflib
+mkdir build
+cd build
+cmake .. -G "Visual Studio 14 2015 Win64"
+msbuild perflib.sln /m
+msbuild RUN_TESTS.vcxproj                  # Run tests
 ```
 
 * x86-64
