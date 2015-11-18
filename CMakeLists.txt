@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-project(perflib)
+project(libtrace)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -21,6 +21,6 @@ endif ()
 set(CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(perf)
+add_subdirectory(libtrace)
 add_subdirectory(tests)
 add_subdirectory(benchmarks)

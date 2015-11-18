@@ -1,17 +1,17 @@
-project(perfTest)
+project(libtrace_tests)
 
 include_directories(include)
 
-add_executable(perfTest
+add_executable(libtrace_tests
   main.cpp
-	perfTests.cpp
+	libtraceTests.cpp
 )
 
-target_link_libraries(perfTest perflib)
+target_link_libraries(libtrace_tests libtrace)
 
 find_package(TBB REQUIRED)
 include_directories(${TBB_INCLUDE_DIR})
-target_link_libraries(perfTest optimized ${TBB_LIBRARIES})
-target_link_libraries(perfTest debug ${TBB_DEBUG_LIBRARIES})
+target_link_libraries(libtrace_tests optimized ${TBB_LIBRARIES})
+target_link_libraries(libtrace_tests debug ${TBB_DEBUG_LIBRARIES})
 
-add_test(NAME perfTest COMMAND perfTest)
+add_test(NAME libtrace_tests COMMAND libtrace_tests)

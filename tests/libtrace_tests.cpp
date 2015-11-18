@@ -1,8 +1,8 @@
 #include <yaffut.h>
 using namespace yaffut;
 
-#include <perf/perf_c.h>
-#include <perf/perf.h>
+#include <libtrace/libtrace_c.h>
+#include <libtrace/libtrace.h>
 
 #include <iostream>
 using namespace std;
@@ -16,12 +16,12 @@ PerfTask *B = perf_task("Task B");
 
 void sleep_1_sec() { this_tbb_thread::sleep(tick_count::interval_t(1.)); }
 
-struct PerfTest {
-  PerfTest() { perf_reset(); }
+struct LibtraceTest {
+  LibtraceTest() { perf_reset(); }
 };
 
-struct NestedPerfStart : Test<PerfTest, NestedPerfStart> {
-  NestedPerfStart() {
+struct NestedStart : Test<LibtraceTest, NestedStart> {
+  NestedStart() {
     task_scheduler_init TSI(1);
 
     task_group Group;
@@ -42,7 +42,7 @@ struct NestedPerfStart : Test<PerfTest, NestedPerfStart> {
   }
 };
 
-struct ReportForNothing : Test<PerfTest, ReportForNothing> {
+struct ReportForNothing : Test<LibtraceTest, ReportForNothing> {
   ReportForNothing() {
     std::stringstream SS;
     perf::report(SS);

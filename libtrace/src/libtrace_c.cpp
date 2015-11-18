@@ -1,6 +1,6 @@
-#include "../include/perf/perf_c.h"
+#include "../include/libtrace/libtrace_c.h"
 
-#include "../include/perf/perf.h"
+#include "../include/libtrace/libtrace.h"
 
 #include <sstream>
 

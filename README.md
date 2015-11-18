@@ -1,10 +1,10 @@
-# perflib
+# libtrace
 
-perflib provides fast instrumentation and tracing API to generate trace data during execution for C/C++.
+libtrace provides fast instrumentation and tracing API to generate trace data during execution for C/C++.
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/xinhuang/perflib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-Travis CI: [![Build Status](https://travis-ci.org/xinhuang/perflib.svg)](https://travis-ci.org/xinhuang/perflib)
-AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sqkufd5fey0y?svg=true)](https://ci.appveyor.com/project/xinhuang/perflib)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/xinhuang/libtrace?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Travis CI: [![Build Status](https://travis-ci.org/xinhuang/libtrace.svg)](https://travis-ci.org/xinhuang/libtrace)
+AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sqkufd5fey0y?svg=true)](https://ci.appveyor.com/project/xinhuang/libtrace)
 
 ## Example
 
@@ -41,9 +41,9 @@ Total Time: 1.00055 seconds.
 		Task Task B : 1.00019 seconds.
 ```
 
-* perflib also provides equivalent C interfaces. *
+* libtrace also provides equivalent C interfaces. *
 
-## Performance of perflib
+## Performance of libtrace
 
 Measured by google/benchmark  
 
@@ -52,26 +52,26 @@ Run on (1 X 3292 MHz CPU )
 11/18/15 12:21:43
 Benchmark                          Time(ns)    CPU(ns) Iterations
 -----------------------------------------------------------------
-BM_perflib_start_stop/threads:1         172        171    3739292
-BM_perflib_start_stop/threads:2         102        200    3205108
-BM_perflib_start_stop/threads:3          78        234    3000000
-BM_perflib_start_stop/threads:4          82        299    2243576
-BM_perflib_start_stop/threads:5          70        298    1725825
-BM_perflib_start_stop/threads:6          54        313    2243574
-BM_perflib_start_stop/threads:7          49        322    2710421
-BM_perflib_start_stop/threads:8          45        382    2243576
-BM_perflib_start_stop/threads:9          55        322    2516796
-BM_perflib_start_stop/threads:10         98        419    1602550
-BM_perflib_start_stop/threads:11         64        435    1542453
-BM_perflib_start_stop/threads:12         64        347    2341128
-BM_perflib_start_stop/threads:13         66        368    1822899
-BM_perflib_start_stop/threads:14         56        379    2512804
-BM_perflib_start_stop/threads:15         58        441    1875885
-BM_perflib_start_stop/threads:16         57        361    2334448
-BM_perflib_start_stop/threads:17         52        321    1700000
-BM_perflib_start_stop/threads:18         53        321    1800000
-BM_perflib_start_stop/threads:19         58        302    1705117
-BM_perflib_start_stop/threads:20         52        344    2130640
+BM_libtrace_start_stop/threads:1         172        171    3739292
+BM_libtrace_start_stop/threads:2         102        200    3205108
+BM_libtrace_start_stop/threads:3          78        234    3000000
+BM_libtrace_start_stop/threads:4          82        299    2243576
+BM_libtrace_start_stop/threads:5          70        298    1725825
+BM_libtrace_start_stop/threads:6          54        313    2243574
+BM_libtrace_start_stop/threads:7          49        322    2710421
+BM_libtrace_start_stop/threads:8          45        382    2243576
+BM_libtrace_start_stop/threads:9          55        322    2516796
+BM_libtrace_start_stop/threads:10         98        419    1602550
+BM_libtrace_start_stop/threads:11         64        435    1542453
+BM_libtrace_start_stop/threads:12         64        347    2341128
+BM_libtrace_start_stop/threads:13         66        368    1822899
+BM_libtrace_start_stop/threads:14         56        379    2512804
+BM_libtrace_start_stop/threads:15         58        441    1875885
+BM_libtrace_start_stop/threads:16         57        361    2334448
+BM_libtrace_start_stop/threads:17         52        321    1700000
+BM_libtrace_start_stop/threads:18         53        321    1800000
+BM_libtrace_start_stop/threads:19         58        302    1705117
+BM_libtrace_start_stop/threads:20         52        344    2130640
 BM_increment_by_one                       2          2  407922793
 ```
 
@@ -89,8 +89,8 @@ BM_increment_by_one                       2          2  407922793
 * Linux
 
 ```  
-git clone git@github.com/xinhuang/perflib.git
-cd perflib
+git clone git@github.com/xinhuang/libtrace.git
+cd libtrace
 mkdir build
 cd build
 cmake ..
@@ -101,12 +101,12 @@ make test                             # Run tests
 * Windows
 
 ```
-git clone git@github.com/xinhuang/perflib.git
-cd perflib
+git clone git@github.com/xinhuang/libtrace.git
+cd libtrace
 mkdir build
 cd build
 cmake .. -G "Visual Studio 14 2015 Win64"
-msbuild perflib.sln /m
+msbuild libtrace.sln /m
 msbuild RUN_TESTS.vcxproj                  # Run tests
 ```
 
