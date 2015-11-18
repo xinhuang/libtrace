@@ -47,6 +47,7 @@ before_build:
 - set TBBROOT=c:\projects\deps\tbb44_20150728oss
 - cd c:\projects\perflib
 - set stage=---------------------------- CMAKE ---------------------------------
+- git submodule init
 - cmake --version
 - mkdir c:\projects\perflib\build
 - cd c:\projects\perflib\build
