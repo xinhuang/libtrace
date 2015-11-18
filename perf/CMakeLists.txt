@@ -12,17 +12,17 @@ add_definitions(-DPERFLIB_EXPORTS)
 if (USE_ITTNOTIFY)
 
 add_library(perfLib STATIC
-  include/perf/common.h
-  include/perf/perf.h
+  ../include/perf/common.h
+  ../include/perf/perf.h
   src/ittPerf.cpp
 )
 
 else ()
 
 add_library(perfLib ${LIB_TYPE}
-  include/perf/common.h
-  include/perf/perf.h
-  include/perf/perf_c.h
+  ../include/perf/common.h
+  ../include/perf/perf.h
+  ../include/perf/perf_c.h
   src/perf.cpp
   src/perf_c.cpp
   src/Module.h

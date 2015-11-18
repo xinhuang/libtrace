@@ -1,6 +1,6 @@
 project(perfTest)
 
-include_directories(../perf/include)
+include_directories(include)
 
 add_executable(perfTest
   main.cpp
