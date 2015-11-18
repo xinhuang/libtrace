@@ -37,16 +37,18 @@ void Module::stop() {
 
   auto &TF = Frame.local();
   assert(TF.back().Task != nullptr);
-  tbb::concurrent_hash_map<const Task *, duration>::accessor A;
-  bool found = TaskDuration.find(A, TF.back().Task);
-  assert(found); // It's inserted in start()
-  if (!found) {
-    std::stringstream sstr;
-    sstr << "perf::stop - ***ERROR*** thread id: "
-         << tbb::this_tbb_thread::get_id() << "\n";
-    throw std::runtime_error("Frame.local() cannot be found.");
+  {
+    tbb::concurrent_hash_map<const Task *, duration>::accessor A;
+    bool found = TaskDuration.find(A, TF.back().Task);
+    assert(found); // It's inserted in start()
+    if (!found) {
+      std::stringstream sstr;
+      sstr << "perf::stop - ***ERROR*** thread id: "
+           << tbb::this_tbb_thread::get_id() << "\n";
+      throw std::runtime_error("Frame.local() cannot be found.");
+    }
+    A->second += Now - TF.back().StartTime;
   }
-  A->second += Now - TF.back().StartTime;
   TF.pop_back();
 }
 
@@ -68,9 +70,9 @@ void Module::report(std::ostream &Out) const {
 }
 
 void Module::reset() {
-	Started = false;
-	Frame.clear();
-	TaskDuration.clear();
-	StopTime.clear();
+  Started = false;
+  Frame.clear();
+  TaskDuration.clear();
+  StopTime.clear();
 }
 }

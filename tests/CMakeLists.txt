@@ -7,7 +7,7 @@ add_executable(perfTest
 	perfTests.cpp
 )
 
-target_link_libraries(perfTest perfLib)
+target_link_libraries(perfTest perflib)
 
 find_package(TBB REQUIRED)
 include_directories(${TBB_INCLUDE_DIR})

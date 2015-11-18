@@ -1,6 +1,6 @@
-project(perfLib)
+project(perflib)
 
-option(BUILD_SHARED_PERFLIB "Build Shared PerfLib" ON)
+option(BUILD_SHARED_PERFLIB "Build Shared perflib" ON)
 
 set(LIB_TYPE SHARED)
 if (NOT BUILD_SHARED_PERFLIB)
@@ -11,7 +11,7 @@ add_definitions(-DPERFLIB_EXPORTS)
 
 if (USE_ITTNOTIFY)
 
-add_library(perfLib STATIC
+add_library(perflib STATIC
   ../include/perf/common.h
   ../include/perf/perf.h
   src/ittPerf.cpp
@@ -19,7 +19,7 @@ add_library(perfLib STATIC
 
 else ()
 
-add_library(perfLib ${LIB_TYPE}
+add_library(perflib ${LIB_TYPE}
   ../include/perf/common.h
   ../include/perf/perf.h
   ../include/perf/perf_c.h
@@ -36,5 +36,5 @@ endif ()
 
 find_package(TBB REQUIRED)
 include_directories(${TBB_INCLUDE_DIR})
-target_link_libraries(perfLib optimized ${TBB_LIBRARIES})
-target_link_libraries(perfLib debug ${TBB_DEBUG_LIBRARIES})
+target_link_libraries(perflib optimized ${TBB_LIBRARIES})
+target_link_libraries(perflib debug ${TBB_DEBUG_LIBRARIES})

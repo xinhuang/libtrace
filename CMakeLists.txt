@@ -23,3 +23,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(perf)
 add_subdirectory(tests)
+add_subdirectory(benchmarks)
