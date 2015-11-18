@@ -21,7 +21,7 @@ before_install:
 - make install
 - export PATH=$HOME/usr/bin:$PATH
 - cd ..
-- wget https://www.threadingbuildingblocks.org/sites/default/files/software_releases/linux/tbb44_20150728oss_lin_0.tgz
+- wget https://www.threadingbuildingblocks.org/sites/default/files/software_releases/linux/tbb44_20150728oss_lin_0.tgz --no-check-certificate
 - tar xf tbb44_20150728oss_lin_0.tgz
 - export TBBROOT=`pwd`/tbb44_20150728oss
 - export TBB_ARCH_PLATFORM=intel64/gcc4.4
