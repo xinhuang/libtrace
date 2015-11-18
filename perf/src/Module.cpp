@@ -4,6 +4,7 @@
 
 #include <ostream>
 #include <cassert>
+#include <unordered_map>
 
 namespace {
 template <typename T>
@@ -27,7 +28,7 @@ void Module::start(Task &Task, const time_point &Time) {
   }
   auto &TF = Frame.local();
   TF.emplace_back(Task, Time);
-  TaskDuration.insert(std::make_pair(&Task, duration()));
+  TSTaskDuration.local().insert(std::make_pair(&Task, duration()));
 }
 
 void Module::stop() {
@@ -39,7 +40,7 @@ void Module::stop() {
   assert(TF.back().Task != nullptr);
   {
     tbb::concurrent_hash_map<const Task *, duration>::accessor A;
-    bool found = TaskDuration.find(A, TF.back().Task);
+    bool found = TSTaskDuration.local().find(A, TF.back().Task);
     assert(found); // It's inserted in start()
     if (!found) {
       std::stringstream sstr;
@@ -62,17 +63,26 @@ void Module::report(std::ostream &Out) const {
   Out << "\tModule " << Name << ": "
       << std::chrono::duration<double>(LastStopTime - StartTime).count()
       << " seconds.\n";
-  for (const auto &TD : TaskDuration) {
-    assert(TD.first != nullptr);
+  std::unordered_map<const Task *, double> Durations;
+  for (const auto &TSTD : TSTaskDuration) {
+    for (const auto &TD : TSTD) {
+      if (Durations.find(TD.first) == Durations.end())
+        Durations[TD.first] = 0;
+      assert(TD.first != nullptr);
+      Durations[TD.first] += std::chrono::duration<double>(TD.second).count();
+    }
+  }
+
+  for (auto TD : Durations) {
     Out << "\t\tTask " << TD.first->getName() << " : "
-        << std::chrono::duration<double>(TD.second).count() << " seconds.\n";
+        << std::chrono::duration<double>(TD.second).count() << "seconds.\n ";
   }
 }
 
 void Module::reset() {
   Started = false;
   Frame.clear();
-  TaskDuration.clear();
+  TSTaskDuration.clear();
   StopTime.clear();
 }
 }

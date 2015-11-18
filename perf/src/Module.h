@@ -28,7 +28,8 @@ class Module {
   std::atomic<bool> Started;
   const std::string Name;
   enumerable_thread_specific<std::list<TaskFrame>> Frame;
-  tbb::concurrent_hash_map<const Task *, duration> TaskDuration;
+  using task_duration_t = tbb::concurrent_hash_map<const Task *, duration>;
+  enumerable_thread_specific<task_duration_t> TSTaskDuration;
   time_point StartTime;
   enumerable_thread_specific<time_point> StopTime;
 
