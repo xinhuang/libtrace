@@ -23,4 +23,4 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(include)
 
 add_subdirectory(perf)
-add_subdirectory(unittest)
+add_subdirectory(tests)
