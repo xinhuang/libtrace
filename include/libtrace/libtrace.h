@@ -21,14 +21,14 @@ using Task = __itt_string_handle;
 
 #endif // ITT_NOTIFY
 
-PERFLIB_API Module *module(std::string Name);
-PERFLIB_API Task *task(std::string Name);
+LIBTRACE_API Module *module(std::string Name);
+LIBTRACE_API Task *task(std::string Name);
 
-PERFLIB_API void start(Module *M, Task *T);
-PERFLIB_API void stop(Module *M);
+LIBTRACE_API void start(Module *M, Task *T);
+LIBTRACE_API void stop(Module *M);
 
-PERFLIB_API void report(std::ostream &Out);
-PERFLIB_API void reset();
+LIBTRACE_API void report(std::ostream &Out);
+LIBTRACE_API void reset();
 
 #else // NO_PERF
 

@@ -22,14 +22,14 @@ typedef __itt_string_handle Task;
 
 #endif // ITT_NOTIFY
 
-PERFLIB_API PerfModule *trace_module(const char *Name);
-PERFLIB_API LTTask *trace_task(const char *Name);
+LIBTRACE_API PerfModule *trace_module(const char *Name);
+LIBTRACE_API LTTask *trace_task(const char *Name);
 
-PERFLIB_API void trace_start(PerfModule *M, LTTask *T);
-PERFLIB_API void trace_stop(PerfModule *M);
+LIBTRACE_API void trace_start(PerfModule *M, LTTask *T);
+LIBTRACE_API void trace_stop(PerfModule *M);
 
-PERFLIB_API void trace_report(char *Buf, size_t N);
-PERFLIB_API void trace_reset();
+LIBTRACE_API void trace_report(char *Buf, size_t N);
+LIBTRACE_API void trace_reset();
 
 #else // NO_LIBTRACE
 
