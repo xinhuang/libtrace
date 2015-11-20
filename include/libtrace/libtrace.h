@@ -7,7 +7,7 @@
 
 namespace trace {
 
-#ifndef NO_PERF
+#ifndef NO_LIBTRACE
 
 #ifndef ITT_NOIFY
 
@@ -30,7 +30,7 @@ LIBTRACE_API void stop(Module *M);
 LIBTRACE_API void report(std::ostream &Out);
 LIBTRACE_API void reset();
 
-#else // NO_PERF
+#else // NO_LIBTRACE
 
 inline Module *module(std::string) { return nullptr; }
 inline Task *task(std::string) { return nullptr; }
@@ -40,5 +40,5 @@ inline void stop(Module *) { return nullptr; }
 
 inline void report(std::ostream &Out) {}
 
-#endif // NOPERF
+#endif // NO_LIBTRACE
 }
