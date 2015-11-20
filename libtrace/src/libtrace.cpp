@@ -1,4 +1,4 @@
-#include "../include/libtrace/libtrace.h"
+#include <libtrace/libtrace.h>
 
 #include "Task.h"
 #include "Module.h"

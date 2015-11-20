@@ -1,9 +1,8 @@
-#include "../include/libtrace/libtrace_c.h"
+#include <libtrace/libtrace_c.h>
 
-#include "../include/libtrace/libtrace.h"
+#include <libtrace/libtrace.h>
 
 #include <sstream>
-
 #include <cstring>
 
 extern "C" {

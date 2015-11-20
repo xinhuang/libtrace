@@ -38,3 +38,19 @@ find_package(TBB REQUIRED)
 include_directories(${TBB_INCLUDE_DIR})
 target_link_libraries(libtrace optimized ${TBB_LIBRARIES})
 target_link_libraries(libtrace debug ${TBB_DEBUG_LIBRARIES})
+
+# Expose public API
+target_include_directories(libtrace PUBLIC ${PROJECT_SOURCE_DIR}/../include)
+
+# Install target (will install the library to specified CMAKE_INSTALL_PREFIX variable)
+install(
+  TARGETS libtrace
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+  COMPONENT library)
+
+install(
+  DIRECTORY "${PROJECT_SOURCE_DIR}/include/libtrace"
+  DESTINATION include
+  FILES_MATCHING PATTERN "*.*h")
