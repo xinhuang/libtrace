@@ -12,10 +12,10 @@ PerfModule *trace_module(const char *Name) {
 }
 
 PerfModule *trace_task(const char *Name) {
-  return reinterpret_cast<PerfTask *>(trace::task(Name));
+  return reinterpret_cast<LTTask *>(trace::task(Name));
 }
 
-void trace_start(PerfModule *M, PerfTask *T) {
+void trace_start(PerfModule *M, LTTask *T) {
   trace::start(reinterpret_cast<trace::Module *>(M),
               reinterpret_cast<trace::Task *>(T));
 }

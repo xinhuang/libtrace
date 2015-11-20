@@ -11,8 +11,8 @@ using namespace std;
 using namespace tbb;
 
 PerfModule *M = trace_module("Module A");
-PerfTask *A = trace_task("Task A");
-PerfTask *B = trace_task("Task B");
+LTTask *A = trace_task("Task A");
+LTTask *B = trace_task("Task B");
 
 void sleep_1_sec() { this_tbb_thread::sleep(tick_count::interval_t(1.)); }
 

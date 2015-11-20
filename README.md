@@ -9,28 +9,28 @@ AppVeyor CI: [![Build Status](https://ci.appveyor.com/api/projects/status/qa62sq
 ## Example
 
 ```
-auto *M = perf::module("Module A");
-auto *A = perf::task("Task A");
-auto *B = perf::task("Task B");
+auto *M = trace::module("Module A");
+auto *A = trace::task("Task A");
+auto *B = trace::task("Task B");
 
 using namespace tbb;
 task_scheduler_init TSI(1);
 
 task_group Group;
 
-perf::start(M, A);
+trace::start(M, A);
 Group.run_and_wait([]() {
   task_group Group;
   Group.run_and_wait([]() {
-    perf::start(M, B);
+    trace::start(M, B);
     // Busy processing data
-    perf::stop(M);
+    trace::stop(M);
   });
 });
-perf::stop(M);
+trace::stop(M);
 
 std::ofstream PerfReport("./PerfReport.txt");
-perf::report(PerfReport);
+trace::report(PerfReport);
 ```
 
 *Output*

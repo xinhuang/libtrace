@@ -4,7 +4,7 @@ notifications:
   - provider: Webhook
     url: https://webhooks.gitter.im/e/836566ea70a6eb4bbdbd
 
-clone_folder: c:\projects\perflib
+clone_folder: c:\projects\libtrace
 
 init:
 - git config --global core.autocrlf input
@@ -27,7 +27,7 @@ configuration:
 - Release
 
 build:
-  project: c:\projects\perflib\build\perflib.sln
+  project: c:\projects\libtrace\build\libtrace.sln
 
 clone_depth: 5
 
@@ -45,12 +45,12 @@ before_build:
 - if not exist tbb44_20150728oss_win.zip ( appveyor DownloadFile https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -FileName tbb44_20150728oss_win.zip )
 - 7z.exe x tbb44_20150728oss_win.zip -oc:\projects\deps > unzip_tbb.log
 - set TBBROOT=c:\projects\deps\tbb44_20150728oss
-- cd c:\projects\perflib
+- cd c:\projects\libtrace
 - set stage=---------------------------- CMAKE ---------------------------------
 - git submodule update --init --recursive
 - cmake --version
-- mkdir c:\projects\perflib\build
-- cd c:\projects\perflib\build
+- mkdir c:\projects\libtrace\build
+- cd c:\projects\libtrace\build
 - ps: write-host $env:toolset
 - ps: write-host $env:TBB_ARCH_PLATFORM
 - ps: cmake .. -G $env:toolset
@@ -59,7 +59,7 @@ before_build:
 test_script:
 - set "path=%PATH%;%TBBROOT%\bin\%TBB_ARCH_PLATFORM%"
 - echo %PATH%
-- msbuild c:\projects\perflib\build\RUN_TESTS.vcxproj
+- msbuild c:\projects\libtrace\build\RUN_TESTS.vcxproj
 
 cache:
 - c:\projects\downloads
