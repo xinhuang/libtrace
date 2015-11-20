@@ -18,6 +18,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_subdirectory(libtrace)
+add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(benchmarks)

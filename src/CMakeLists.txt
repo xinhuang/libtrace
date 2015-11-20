@@ -1,9 +1,9 @@
-include_directories(${PROJECT_SOURCE_DIR}/libtrace/src)
+include_directories(${PROJECT_SOURCE_DIR}/src)
 
-option(BUILD_SHARED_PERFLIB "Build Shared libtrace" ON)
+option(BUILD_SHARED_LIBTRACE "Build Shared libtrace" ON)
 
 set(LIB_TYPE SHARED)
-if (NOT BUILD_SHARED_PERFLIB)
+if (NOT BUILD_SHARED_LIBTRACE)
   set(LIB_TYPE STATIC)
 endif()
 
@@ -20,16 +20,13 @@ add_library(libtrace STATIC
 else ()
 
 add_library(libtrace ${LIB_TYPE}
-  ../include/libtrace/common.h
-  ../include/libtrace/libtrace.h
-  ../include/libtrace/libtrace_c.h
-  src/libtrace.cpp
-  src/libtrace_c.cpp
-  src/Module.h
-  src/Module.cpp
-  src/Task.h
-  src/types.h
-  src/enumerable_thread_specific.h
+  libtrace.cpp
+  libtrace_c.cpp
+  Module.h
+  Module.cpp
+  Task.h
+  types.h
+  enumerable_thread_specific.h
 )
 
 endif ()
@@ -48,9 +45,11 @@ install(
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
-  COMPONENT library)
+  COMPONENT library
+)
 
 install(
   DIRECTORY "${PROJECT_SOURCE_DIR}/include/libtrace"
   DESTINATION include
-  FILES_MATCHING PATTERN "*.*h")
+  FILES_MATCHING PATTERN "*.*h"
+)
