@@ -47,6 +47,6 @@ struct ReportForNothing : Test<LibtraceTest, ReportForNothing> {
 	trace::report(SS);
 
     const auto &S = SS.str();
-    check(S.find("Perf: No data collected.\n") != std::string::npos);
+    check(S.find("libtrace: No data collected.\n") != std::string::npos);
   }
 };

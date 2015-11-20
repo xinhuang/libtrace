@@ -55,7 +55,7 @@ void Module::stop() {
 
 void Module::report(std::ostream &Out) const {
   if (StopTime.empty()) {
-    Out << "Perf: No data collected.\n";
+    Out << "libtrace: No data collected.\n";
     return;
   }
   time_point LastStopTime =
