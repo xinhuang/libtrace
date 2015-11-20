@@ -1,10 +1,10 @@
-#include "perf.h"
+#include "libtrace.h"
 
 #include <stdexcept>
 
 #include <ittnotify.h>
 
-namespace perf {
+namespace trace {
 
 Module *module(std::string Name) {
   return __itt_domain_create(Name.c_str());
@@ -17,7 +17,7 @@ void stop(Module *M) { __itt_task_end(M); }
 
 void report(std::ostream& Out) {
   throw std::runtime_error(
-      "perf using ittnotify doesn't support report generation.");
+      "libtrace using ittnotify doesn't support report generation.");
 }
 }
 
