@@ -13,7 +13,7 @@ extern "C" {
 #ifndef ITT_NOIFY
 
 typedef void *LTTask;
-typedef void *PerfModule;
+typedef void *LTModule;
 
 #else
 
@@ -22,11 +22,11 @@ typedef __itt_string_handle Task;
 
 #endif // ITT_NOTIFY
 
-LIBTRACE_API PerfModule *trace_module(const char *Name);
+LIBTRACE_API LTModule *trace_module(const char *Name);
 LIBTRACE_API LTTask *trace_task(const char *Name);
 
-LIBTRACE_API void trace_start(PerfModule *M, LTTask *T);
-LIBTRACE_API void trace_stop(PerfModule *M);
+LIBTRACE_API void trace_start(LTModule *M, LTTask *T);
+LIBTRACE_API void trace_stop(LTModule *M);
 
 LIBTRACE_API void trace_report(char *Buf, size_t N);
 LIBTRACE_API void trace_reset();
@@ -36,8 +36,8 @@ LIBTRACE_API void trace_reset();
 inline Module *trace_module(const char * /*Name*/) { return nullptr; }
 inline Task *trace_task(const char * /*Name*/) { return nullptr; }
 
-inline void trace_start(PerfModule *, LTTask *) { return nullptr; }
-inline void trace_stop(PerfModule *) { return nullptr; }
+inline void trace_start(LTModule *, LTTask *) { return nullptr; }
+inline void trace_stop(LTModule *) { return nullptr; }
 
 inline void trace_report(char *& /*Buf*/, size_t /*N*/) {}
 inline void trace_reset() {}

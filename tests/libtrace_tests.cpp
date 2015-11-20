@@ -10,7 +10,7 @@ using namespace std;
 #include <tbb/tbb.h>
 using namespace tbb;
 
-PerfModule *M = trace_module("Module A");
+LTModule *M = trace_module("Module A");
 LTTask *A = trace_task("Task A");
 LTTask *B = trace_task("Task B");
 

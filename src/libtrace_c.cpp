@@ -7,20 +7,20 @@
 
 extern "C" {
 
-PerfModule *trace_module(const char *Name) {
-  return reinterpret_cast<PerfModule *>(trace::module(Name));
+LTModule *trace_module(const char *Name) {
+  return reinterpret_cast<LTModule *>(trace::module(Name));
 }
 
-PerfModule *trace_task(const char *Name) {
+LTModule *trace_task(const char *Name) {
   return reinterpret_cast<LTTask *>(trace::task(Name));
 }
 
-void trace_start(PerfModule *M, LTTask *T) {
+void trace_start(LTModule *M, LTTask *T) {
   trace::start(reinterpret_cast<trace::Module *>(M),
               reinterpret_cast<trace::Task *>(T));
 }
 
-void trace_stop(PerfModule *M) {
+void trace_stop(LTModule *M) {
   trace::stop(reinterpret_cast<trace::Module *>(M));
 }
 
