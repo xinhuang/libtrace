@@ -5,7 +5,7 @@
 #include <string>
 #include <iosfwd>
 
-namespace perf {
+namespace trace {
 
 #ifndef NO_PERF
 

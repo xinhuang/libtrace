@@ -13,16 +13,16 @@
 
 #include <tbb/concurrent_hash_map.h>
 
-namespace perf {
+namespace trace {
 
 class Task;
 
 class Module {
   struct TaskFrame {
-    const perf::Task *Task;
+    const trace::Task *Task;
     time_point StartTime;
 
-    TaskFrame(const perf::Task &T, const time_point &TP) : Task(&T), StartTime(TP) {}
+    TaskFrame(const trace::Task &T, const time_point &TP) : Task(&T), StartTime(TP) {}
   };
 
   std::atomic<bool> Started;

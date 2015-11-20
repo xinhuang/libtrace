@@ -7,26 +7,26 @@
 
 extern "C" {
 
-PerfModule *perf_module(const char *Name) {
-  return reinterpret_cast<PerfModule *>(perf::module(Name));
+PerfModule *trace_module(const char *Name) {
+  return reinterpret_cast<PerfModule *>(trace::module(Name));
 }
 
-PerfModule *perf_task(const char *Name) {
-  return reinterpret_cast<PerfTask *>(perf::task(Name));
+PerfModule *trace_task(const char *Name) {
+  return reinterpret_cast<PerfTask *>(trace::task(Name));
 }
 
-void perf_start(PerfModule *M, PerfTask *T) {
-  perf::start(reinterpret_cast<perf::Module *>(M),
-              reinterpret_cast<perf::Task *>(T));
+void trace_start(PerfModule *M, PerfTask *T) {
+  trace::start(reinterpret_cast<trace::Module *>(M),
+              reinterpret_cast<trace::Task *>(T));
 }
 
-void perf_stop(PerfModule *M) {
-  perf::stop(reinterpret_cast<perf::Module *>(M));
+void trace_stop(PerfModule *M) {
+  trace::stop(reinterpret_cast<trace::Module *>(M));
 }
 
-void perf_report(char *Buf, size_t N) {
+void trace_report(char *Buf, size_t N) {
   std::stringstream SS;
-  perf::report(SS);
+  trace::report(SS);
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4996) // Disable warning for unsafe call to strncpy.
@@ -38,6 +38,6 @@ void perf_report(char *Buf, size_t N) {
   Buf[N - 1] = 0;
 }
 
-void perf_reset() { perf::reset(); }
+void trace_reset() { trace::reset(); }
 
 } // extern "C"

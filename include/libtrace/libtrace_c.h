@@ -22,25 +22,25 @@ typedef __itt_string_handle Task;
 
 #endif // ITT_NOTIFY
 
-PERFLIB_API PerfModule *perf_module(const char *Name);
-PERFLIB_API PerfTask *perf_task(const char *Name);
+PERFLIB_API PerfModule *trace_module(const char *Name);
+PERFLIB_API PerfTask *trace_task(const char *Name);
 
-PERFLIB_API void perf_start(PerfModule *M, PerfTask *T);
-PERFLIB_API void perf_stop(PerfModule *M);
+PERFLIB_API void trace_start(PerfModule *M, PerfTask *T);
+PERFLIB_API void trace_stop(PerfModule *M);
 
-PERFLIB_API void perf_report(char *Buf, size_t N);
-PERFLIB_API void perf_reset();
+PERFLIB_API void trace_report(char *Buf, size_t N);
+PERFLIB_API void trace_reset();
 
 #else // NO_PERF
 
-inline Module *perf_module(const char * /*Name*/) { return nullptr; }
-inline Task *perf_task(const char * /*Name*/) { return nullptr; }
+inline Module *trace_module(const char * /*Name*/) { return nullptr; }
+inline Task *trace_task(const char * /*Name*/) { return nullptr; }
 
-inline void perf_start(PerfModule *, PerfTask *) { return nullptr; }
-inline void perf_stop(PerfModule *) { return nullptr; }
+inline void trace_start(PerfModule *, PerfTask *) { return nullptr; }
+inline void trace_stop(PerfModule *) { return nullptr; }
 
-inline void perf_report(char *& /*Buf*/, size_t /*N*/) {}
-inline void perf_reset() {}
+inline void trace_report(char *& /*Buf*/, size_t /*N*/) {}
+inline void trace_reset() {}
 
 #endif // NOPERF
 

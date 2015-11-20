@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace perf {
+namespace trace {
 
 class Task {
   const std::string Name;

@@ -4,13 +4,13 @@
 
 BENCHMARK_MAIN();
 
-auto* m = perf::module("M");
-auto* t = perf::task("T");
+auto *m = trace::module("M");
+auto *t = trace::task("T");
 
-static void BM_libtrace_start_stop(benchmark::State& state) {
+static void BM_libtrace_start_stop(benchmark::State &state) {
   while (state.KeepRunning()) {
-    perf::start(m, t);
-    perf::stop(m);
+    trace::start(m, t);
+    trace::stop(m);
   }
 }
 
@@ -35,7 +35,7 @@ BENCHMARK(BM_libtrace_start_stop)->Threads(18);
 BENCHMARK(BM_libtrace_start_stop)->Threads(19);
 BENCHMARK(BM_libtrace_start_stop)->Threads(20);
 
-static void BM_increment_by_one(benchmark::State& state) {
+static void BM_increment_by_one(benchmark::State &state) {
   int i = 0;
   while (state.KeepRunning()) {
     benchmark::DoNotOptimize(++i);

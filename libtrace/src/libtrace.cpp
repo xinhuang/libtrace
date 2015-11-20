@@ -11,7 +11,7 @@
 #include <set>
 #include <sstream>
 
-namespace perf {
+namespace trace {
 
 class Perf {
   mutable bool Reporting = false;
@@ -47,7 +47,7 @@ public:
         << std::chrono::duration<double>(LastStop - FirstStart).count()
         << " seconds.\n";
     if (LastStop < FirstStart)
-      Out << "Warning: You have dangling perf::start() calls.\n";
+      Out << "Warning: You have dangling trace::start() calls.\n";
     for (auto M : Modules) {
       M->report(Out);
     }

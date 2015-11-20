@@ -19,7 +19,7 @@ const typename T::value_type &maxP(typename T::const_iterator Begin,
 }
 }
 
-namespace perf {
+namespace trace {
 
 void Module::start(Task &Task, const time_point &Time) {
   if (!Started) {
@@ -44,7 +44,7 @@ void Module::stop() {
     assert(found); // It's inserted in start()
     if (!found) {
       std::stringstream sstr;
-      sstr << "perf::stop - ***ERROR*** thread id: "
+      sstr << "trace::stop - ***ERROR*** thread id: "
            << tbb::this_tbb_thread::get_id() << "\n";
       throw std::runtime_error("Frame.local() cannot be found.");
     }
