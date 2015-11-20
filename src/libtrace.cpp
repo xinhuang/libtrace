@@ -13,17 +13,17 @@
 
 namespace trace {
 
-class Perf {
+class Trace {
   mutable bool Reporting = false;
   time_point LastStop = time_point::min();
   time_point FirstStart = time_point::max();
   tbb::concurrent_unordered_set<Module *> Modules;
 
-  Perf(){};
+  Trace(){};
 
 public:
-  static Perf *getInstance() {
-    static Perf Instance;
+  static Trace *getInstance() {
+    static Trace Instance;
     return &Instance;
   }
 
@@ -71,17 +71,17 @@ public:
 };
 
 Module *module(std::string Name) {
-  return Perf::getInstance()->createModule(std::move(Name));
+  return Trace::getInstance()->createModule(std::move(Name));
 }
 void destroy(Module *M) { delete M; }
 
 Task *task(std::string Name) { return new Task(std::move(Name)); }
 void destroy(Task *T) { delete T; }
 
-void start(Module *M, Task *T) { Perf::getInstance()->start(*M, *T); }
-void stop(Module *M) { Perf::getInstance()->stop(*M); }
+void start(Module *M, Task *T) { Trace::getInstance()->start(*M, *T); }
+void stop(Module *M) { Trace::getInstance()->stop(*M); }
 
-void report(std::ostream &Out) { Perf::getInstance()->report(Out); }
+void report(std::ostream &Out) { Trace::getInstance()->report(Out); }
 
-void reset() { Perf::getInstance()->reset(); }
+void reset() { Trace::getInstance()->reset(); }
 }
