@@ -7,7 +7,7 @@ if (NOT BUILD_SHARED_LIBTRACE)
   set(LIB_TYPE STATIC)
 endif()
 
-add_definitions(-DPERFLIB_EXPORTS)
+add_definitions(-DLIBTRACE_EXPORTS)
 
 if (USE_ITTNOTIFY)
 
