@@ -51,6 +51,6 @@ install(
   COMPONENT library)
 
 install(
-  DIRECTORY "${PROJECT_SOURCE_DIR}/include/libtrace"
+  DIRECTORY "${PROJECT_SOURCE_DIR}/../include/libtrace"
   DESTINATION include
   FILES_MATCHING PATTERN "*.*h")
