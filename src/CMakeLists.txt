@@ -14,7 +14,7 @@ if (USE_ITTNOTIFY)
 add_library(libtrace STATIC
   ../include/libtrace/common.h
   ../include/libtrace/libtrace.h
-  src/ittPerf.cpp
+  src/itt_trace.cpp
 )
 
 else ()
