@@ -4,7 +4,7 @@ include_directories(include)
 
 add_executable(libtrace_tests
   main.cpp
-	libtraceTests.cpp
+	libtrace_tests.cpp
 )
 
 target_link_libraries(libtrace_tests libtrace)
