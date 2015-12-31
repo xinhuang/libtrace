@@ -41,7 +41,7 @@ Total Time: 1.00055 seconds.
 		Task Task B : 1.00019 seconds.
 ```
 
-* libtrace also provides equivalent C interfaces. *
+*libtrace also provides equivalent C interfaces.*
 
 ## Performance of libtrace
 
