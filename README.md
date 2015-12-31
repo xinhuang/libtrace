@@ -118,9 +118,6 @@ If you prefer x86-64,
 
 ### Toubleshooting
 
-*If Boost is not found*,  
-Add `-DBOOSTROOT=<your boost include path>`. On Windows, by default it's `C:\Boost\include\boost-1_59`.  
-
 *If TBB is not found*,  
 Add `-DTBBROOT=<your TBB root path` and set environment variable `TBB_ARCH_PLATFORM`
 match your platform and compiler. For example, `ia32/vc14` is for VC14 on x86, `intel64/gcc4.8` for gcc 4.8 on x86-64.
