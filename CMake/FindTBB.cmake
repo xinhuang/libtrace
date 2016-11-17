@@ -4,6 +4,7 @@
 # Improvements by Gino van den Bergen <gino _at_ dtecta.com>,
 #   Florian Uhlig <F.Uhlig _at_ gsi.de>,
 #   Jiri Marsik <jiri.marsik89 _at_ gmail.com>
+#   Xin Huang <xinhuang.abc _at_ gmail.com>
 
 # The MIT License
 #
