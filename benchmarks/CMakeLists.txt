@@ -1,6 +1,6 @@
 project(libtrace_benchmarks)
 
-set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL)
+set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "Enable testing of the benchmark library.")
 
 add_subdirectory(benchmark)
 
